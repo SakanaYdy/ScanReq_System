@@ -1,0 +1,11 @@
+{
+    "apps": [
+        {
+            "id": "A1",
+            "name": "sample_app",
+            "package": "com.example.sampleapp",
+            "launch-activity": "com.example.sampleapp.MainActivity"
+        }
+    ],
+    "scenarios": []
+}

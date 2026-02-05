@@ -1,0 +1,2 @@
+com.ferrarid.converterpro.MainActivity
+io.flutter.plugins.urllauncher.WebViewActivity

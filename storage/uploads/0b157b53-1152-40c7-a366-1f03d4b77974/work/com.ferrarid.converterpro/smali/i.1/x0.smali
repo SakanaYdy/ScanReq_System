@@ -1,0 +1,3 @@
+.class public interface abstract Li/x0;
+.super Ljava/lang/Object;
+.source "SourceFile"

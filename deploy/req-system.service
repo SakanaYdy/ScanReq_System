@@ -1,0 +1,26 @@
+[Unit]
+Description=Requirement Generation System
+After=network.target
+
+[Service]
+# Change this to your user
+User=ubuntu
+Group=ubuntu
+
+# Change this to your project path
+WorkingDirectory=/opt/req-system
+
+# Environment Variables
+Environment="PATH=/opt/req-system/venv/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONPATH=/opt/req-system"
+Environment="DASHSCOPE_API_KEY=your_api_key_here"
+
+# Command to run
+ExecStart=/opt/req-system/venv/bin/python Req/server/main.py
+
+# Restart configuration
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

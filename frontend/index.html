@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requirement Generation System</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1c2c 0%, #4a192c 100%); /* Fallback */
+            background: linear-gradient(to bottom right, #0f172a, #1e1b4b, #312e81);
+            color: #e2e8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+        }
+        .form-input {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.2s;
+        }
+        .form-input:focus {
+            border-color: #818cf8;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2);
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #6366f1, #818cf8);
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        /* Tab Styles */
+        .tab-btn {
+            @apply px-4 py-2 rounded-lg font-medium transition-colors;
+        }
+        .tab-btn.active {
+            @apply bg-indigo-600 text-white shadow-lg;
+        }
+        .tab-btn.inactive {
+            @apply text-indigo-300 hover:text-white hover:bg-white/10;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-8">
+            <div class="flex items-center space-x-4">
+                <div class="bg-indigo-600 p-2 rounded-lg">
+                    <span class="text-2xl font-bold text-white">Req</span>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold">{{ t('title') }}</h1>
+                    <p class="text-indigo-200 text-sm">{{ t('subtitle') }}</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <!-- Settings Button -->
+                <button @click="showSettings = !showSettings" class="text-indigo-300 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </button>
+
+                <!-- Language Toggle -->
+                <div class="bg-indigo-900/50 p-1 rounded-lg flex border border-indigo-500/30">
+                    <button 
+                        @click="lang = 'zh'" 
+                        :class="{'bg-indigo-600 text-white': lang === 'zh', 'text-indigo-300 hover:text-white': lang !== 'zh'}"
+                        class="px-3 py-1 rounded-md text-sm font-medium transition-all"
+                    >
+                        中文
+                    </button>
+                    <button 
+                        @click="lang = 'en'" 
+                        :class="{'bg-indigo-600 text-white': lang === 'en', 'text-indigo-300 hover:text-white': lang !== 'en'}"
+                        class="px-3 py-1 rounded-md text-sm font-medium transition-all"
+                    >
+                        English
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="flex space-x-4 mb-6 border-b border-white/10 pb-2">
+            <button 
+                @click="currentTab = 'generate'" 
+                class="tab-btn"
+                :class="currentTab === 'generate' ? 'active' : 'inactive'"
+            >
+                {{ t('tabGenerate') }}
+            </button>
+            <button 
+                @click="fetchHistory(); currentTab = 'history'" 
+                class="tab-btn"
+                :class="currentTab === 'history' ? 'active' : 'inactive'"
+            >
+                {{ t('tabHistory') }}
+            </button>
+        </div>
+
+        <!-- Settings Modal (Inline for simplicity) -->
+        <div v-if="showSettings" class="glass-panel p-6 mb-8 border-indigo-500 border-2 shadow-lg animate-fade-in relative">
+            <button @click="showSettings = false" class="absolute top-4 right-4 text-gray-400 hover:text-white">✕</button>
+            <h3 class="text-xl font-bold text-white mb-4">{{ t('settings') }}</h3>
+            <div>
+                <label class="block text-sm font-medium text-indigo-200 mb-2">{{ t('globalApiKey') }}</label>
+                <div class="flex space-x-2">
+                    <input 
+                        type="password" 
+                        v-model="globalApiKey" 
+                        class="form-input flex-1 px-4 py-3 rounded-lg"
+                        placeholder="sk-..."
+                    >
+                    <button 
+                        @click="saveGlobalApiKey"
+                        class="btn-primary px-6 py-2 rounded-lg text-white font-bold"
+                    >
+                        {{ t('save') }}
+                    </button>
+                </div>
+                <p v-if="hasApiKey" class="text-green-400 text-sm mt-2">✓ {{ t('apiKeySet') }}</p>
+                <p v-else class="text-yellow-400 text-sm mt-2">⚠ {{ t('apiKeyNotSet') }}</p>
+            </div>
+        </div>
+
+        <!-- GENERATE TAB -->
+        <div v-if="currentTab === 'generate'">
+            <div class="glass-panel p-8 shadow-2xl">
+                
+                <!-- Combo Row (API Key removed from here, used globally) -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-indigo-200 mb-2">{{ t('combo') }}</label>
+                    <select v-model="form.combo" class="form-input w-full px-4 py-3 rounded-lg appearance-none bg-no-repeat bg-right">
+                        <option v-for="c in combos" :key="c" :value="c">{{ c }}</option>
+                    </select>
+                </div>
+
+                <!-- File Upload & App Name -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <!-- App Name Input -->
+                    <div>
+                        <label class="block text-sm font-medium text-indigo-200 mb-2">{{ t('appName') }}</label>
+                        <input 
+                            type="text" 
+                            v-model="form.appName" 
+                            class="form-input w-full px-4 py-2 rounded-lg"
+                            :placeholder="t('appNamePlaceholder')"
+                        >
+                    </div>
+
+                    <!-- File Upload -->
+                    <div>
+                        <label class="block text-sm font-medium text-indigo-200 mb-2">{{ t('apkFile') }}</label>
+                        <div class="relative">
+                            <input 
+                                type="file" 
+                                ref="fileInput"
+                                @change="handleFileUpload"
+                                class="hidden" 
+                                accept=".apk"
+                            >
+                            <div class="flex items-center form-input rounded-lg p-1 pr-4">
+                                <button 
+                                    @click="$refs.fileInput.click()"
+                                    class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md font-medium hover:bg-white transition-colors mr-3"
+                                >
+                                    {{ t('chooseFile') }}
+                                </button>
+                                <span class="text-gray-300 truncate flex-1">{{ form.filename || t('noFileChosen') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repo Link -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-indigo-200 mb-2">{{ t('repoLink') }}</label>
+                    <input 
+                        type="text" 
+                        v-model="form.repoLink" 
+                        class="form-input w-full px-4 py-3 rounded-lg"
+                        placeholder="https://github.com/..."
+                    >
+                </div>
+
+                <!-- App Intro -->
+                <div class="mb-8">
+                    <label class="block text-sm font-medium text-indigo-200 mb-2">{{ t('appIntro') }}</label>
+                    <textarea 
+                        v-model="form.appIntro" 
+                        rows="6" 
+                        class="form-input w-full px-4 py-3 rounded-lg"
+                        :placeholder="t('appIntroPlaceholder')"
+                    ></textarea>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex items-center space-x-4">
+                    <button 
+                        @click="startGeneration" 
+                        :disabled="loading || !form.jobId || (!hasApiKey && !form.apiKey)"
+                        class="btn-primary px-8 py-3 rounded-lg text-white font-bold text-lg shadow-lg"
+                    >
+                        {{ loading ? t('processing') : t('startGen') }}
+                    </button>
+                    <button 
+                        @click="resetForm" 
+                        class="px-6 py-3 rounded-lg text-indigo-300 hover:text-white hover:bg-white/10 transition-colors"
+                    >
+                        {{ t('clear') }}
+                    </button>
+                    <div v-if="!hasApiKey" class="text-yellow-400 text-sm ml-auto flex items-center">
+                        ⚠ {{ t('apiKeyRequired') }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status & Results Section -->
+            <div v-if="form.jobId" class="mt-8 glass-panel p-6 animate-fade-in">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-lg font-semibold text-white">{{ t('taskStatus') }}</h3>
+                        <div class="flex items-center mt-1">
+                            <div class="w-3 h-3 rounded-full mr-2" 
+                                :class="{
+                                    'bg-yellow-400 animate-pulse': status === 'running' || status === 'pending',
+                                    'bg-green-400': status === 'completed',
+                                    'bg-red-400': status === 'failed'
+                                }"></div>
+                            <span class="text-xl font-mono uppercase tracking-wide" 
+                                :class="{
+                                    'text-yellow-400': status === 'running',
+                                    'text-green-400': status === 'completed',
+                                    'text-red-400': status === 'failed'
+                                }">
+                                {{ status }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-xs text-indigo-300 uppercase tracking-wider">JOB ID</p>
+                        <p class="font-mono text-sm text-white">{{ form.jobId }}</p>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div v-if="status === 'completed' && result" class="mt-6 border-t border-white/10 pt-6">
+                    <h4 class="text-lg font-semibold text-white mb-4">{{ t('results') }}</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-indigo-900/30 p-4 rounded-lg border border-indigo-500/20">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-indigo-200">{{ t('report') }}</span>
+                                <a :href="getDownloadLink(form.jobId, 'report')" target="_blank" class="text-blue-400 hover:text-blue-300 text-sm">{{ t('download') }}</a>
+                            </div>
+                            <div class="text-xs text-gray-400 break-all">{{ result.report ? result.report.split(/[\\/]/).pop() : '' }}</div>
+                        </div>
+                        
+                        <div class="bg-indigo-900/30 p-4 rounded-lg border border-indigo-500/20">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-indigo-200">{{ t('zip') }}</span>
+                                <a :href="getDownloadLink(form.jobId, 'zip')" target="_blank" class="text-blue-400 hover:text-blue-300 text-sm">{{ t('download') }}</a>
+                            </div>
+                            <div class="text-xs text-gray-400 break-all">{{ result.zip ? result.zip.split(/[\\/]/).pop() : '' }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="status === 'failed'" class="mt-4 p-4 bg-red-900/30 rounded-lg border border-red-500/30 text-red-200">
+                    {{ errorMsg }}
+                </div>
+            </div>
+        </div>
+
+        <!-- HISTORY TAB -->
+        <div v-if="currentTab === 'history'">
+            <div class="glass-panel p-6 shadow-2xl overflow-x-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-white">{{ t('historyTitle') }}</h2>
+                    <button @click="fetchHistory" class="text-indigo-300 hover:text-white">
+                        {{ t('refresh') }} ↻
+                    </button>
+                </div>
+
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="text-indigo-200 border-b border-white/10 text-sm">
+                            <th class="py-3 px-4">{{ t('thTime') }}</th>
+                            <th class="py-3 px-4">{{ t('thApp') }}</th>
+                            <th class="py-3 px-4">{{ t('thCombo') }}</th>
+                            <th class="py-3 px-4">{{ t('thStatus') }}</th>
+                            <th class="py-3 px-4">{{ t('thAction') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm">
+                        <tr v-for="job in historyList" :key="job.job_id" class="border-b border-white/5 hover:bg-white/5 transition-colors">
+                            <td class="py-3 px-4 text-gray-300">{{ formatTime(job.created_at) }}</td>
+                            <td class="py-3 px-4 text-white font-medium">{{ job.app_name || job.original_filename }}</td>
+                            <td class="py-3 px-4 text-gray-300">{{ job.combo }}</td>
+                            <td class="py-3 px-4">
+                                <span class="px-2 py-1 rounded text-xs font-bold uppercase"
+                                    :class="{
+                                        'bg-yellow-400/20 text-yellow-400': job.status === 'running' || job.status === 'pending',
+                                        'bg-green-400/20 text-green-400': job.status === 'completed',
+                                        'bg-red-400/20 text-red-400': job.status === 'failed'
+                                    }">
+                                    {{ job.status }}
+                                </span>
+                            </td>
+                            <td class="py-3 px-4">
+                                <div v-if="job.status === 'completed'" class="flex space-x-3">
+                                    <a :href="getDownloadLink(job.job_id, 'report')" target="_blank" class="text-blue-400 hover:text-blue-300 text-xs">Report</a>
+                                    <a :href="getDownloadLink(job.job_id, 'zip')" target="_blank" class="text-blue-400 hover:text-blue-300 text-xs">Zip</a>
+                                </div>
+                                <span v-else class="text-gray-500 text-xs">-</span>
+                            </td>
+                        </tr>
+                        <tr v-if="historyList.length === 0">
+                            <td colspan="5" class="py-8 text-center text-gray-400">{{ t('noHistory') }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const { createApp, ref, onMounted, watch } = Vue;
+
+        createApp({
+            setup() {
+                const lang = ref('zh');
+                const combos = ref([]);
+                const loading = ref(false);
+                const status = ref('idle'); 
+                const result = ref(null);
+                const errorMsg = ref('');
+                const currentTab = ref('generate'); // generate, history
+                
+                // Settings
+                const showSettings = ref(false);
+                const globalApiKey = ref('');
+                const hasApiKey = ref(false);
+
+                // History
+                const historyList = ref([]);
+                
+                const form = ref({
+                    apiKey: '', // Deprecated in UI but kept for compatibility
+                    combo: '应用介绍+Activity分析', // default
+                    repoLink: '',
+                    appIntro: '',
+                    jobId: '',
+                    filename: '',
+                    appName: ''
+                });
+
+                const translations = {
+                    zh: {
+                        title: '需求生成系统 Demo',
+                        subtitle: '上传 APK → 选择组合模式 → 生成并下载文件',
+                        settings: '系统设置',
+                        globalApiKey: '全局 API Key (DashScope)',
+                        apiKeySet: 'API Key 已配置',
+                        apiKeyNotSet: '未配置全局 API Key',
+                        apiKeyRequired: '请在设置中配置 API Key',
+                        save: '保存',
+                        combo: '组合模式',
+                        apkFile: 'APK 文件',
+                        appName: '应用名称',
+                        appNamePlaceholder: '请输入应用名称',
+                        chooseFile: '选择文件',
+                        noFileChosen: '未选择文件',
+                        repoLink: '源码仓库链接',
+                        appIntro: '应用介绍',
+                        appIntroPlaceholder: '请输入应用介绍...',
+                        startGen: '开始生成',
+                        processing: '正在处理...',
+                        clear: '清空',
+                        taskStatus: '任务状态',
+                        results: '生成结果',
+                        report: '功能测试报告 (Word)',
+                        zip: '数据包 (Zip)',
+                        download: '下载',
+                        tabGenerate: '新任务',
+                        tabHistory: '历史记录',
+                        historyTitle: '任务历史',
+                        refresh: '刷新',
+                        thTime: '时间',
+                        thApp: '应用名称',
+                        thCombo: '模式',
+                        thStatus: '状态',
+                        thAction: '操作',
+                        noHistory: '暂无历史记录',
+                        taskSubmitted: '任务已提交至后台',
+                        checkHistory: '请前往历史记录查看进度',
+                        ok: '好的'
+                    },
+                    en: {
+                        title: 'Requirement Generation Demo',
+                        subtitle: 'Upload APK → Select Strategy → Generate & Download',
+                        settings: 'Settings',
+                        globalApiKey: 'Global API Key (DashScope)',
+                        apiKeySet: 'API Key Configured',
+                        apiKeyNotSet: 'API Key Not Configured',
+                        apiKeyRequired: 'Please configure API Key in settings',
+                        save: 'Save',
+                        combo: 'Generation Strategy',
+                        apkFile: 'APK File',
+                        appName: 'App Name',
+                        appNamePlaceholder: 'Enter App Name',
+                        chooseFile: 'Choose File',
+                        noFileChosen: 'No file chosen',
+                        repoLink: 'Source Code Repo Link',
+                        appIntro: 'App Introduction',
+                        appIntroPlaceholder: 'Enter app introduction...',
+                        startGen: 'Start Generation',
+                        processing: 'Processing...',
+                        clear: 'Clear',
+                        taskStatus: 'Task Status',
+                        results: 'Results',
+                        report: 'Function Test Report (Word)',
+                        zip: 'Data Package (Zip)',
+                        download: 'Download',
+                        tabGenerate: 'New Task',
+                        tabHistory: 'History',
+                        historyTitle: 'Task History',
+                        refresh: 'Refresh',
+                        thTime: 'Time',
+                        thApp: 'App Name',
+                        thCombo: 'Strategy',
+                        thStatus: 'Status',
+                        thAction: 'Action',
+                        noHistory: 'No history found',
+                        taskSubmitted: 'Task submitted to background',
+                        checkHistory: 'Please check history for progress',
+                        ok: 'OK'
+                    }
+                };
+
+                const t = (key) => translations[lang.value][key] || key;
+
+                onMounted(async () => {
+                    loadCombos();
+                    checkConfig();
+                });
+
+                const loadCombos = async () => {
+                    try {
+                        const res = await fetch('/api/combos');
+                        const data = await res.json();
+                        combos.value = data.combos;
+                    } catch (e) {
+                        console.error('Failed to load combos', e);
+                    }
+                };
+
+                const checkConfig = async () => {
+                    try {
+                        const res = await fetch('/api/config');
+                        const data = await res.json();
+                        hasApiKey.value = data.has_api_key;
+                    } catch (e) {
+                        console.error('Failed to check config', e);
+                    }
+                };
+
+                const saveGlobalApiKey = async () => {
+                    if (!globalApiKey.value) return;
+                    try {
+                        await fetch('/api/config', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ api_key: globalApiKey.value })
+                        });
+                        hasApiKey.value = true;
+                        showSettings.value = false;
+                        globalApiKey.value = ''; // clear input
+                        alert('API Key Saved');
+                    } catch (e) {
+                        alert('Failed to save config');
+                    }
+                };
+
+                const handleFileUpload = async (event) => {
+                    const file = event.target.files[0];
+                    if (!file) return;
+                    
+                    form.value.filename = file.name;
+                    const formData = new FormData();
+                    formData.append('file', file);
+
+                    try {
+                        loading.value = true;
+                        const res = await fetch('/api/upload', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        const data = await res.json();
+                        form.value.jobId = data.job_id;
+                        status.value = 'idle';
+                    } catch (e) {
+                        alert('Upload failed');
+                    } finally {
+                        loading.value = false;
+                    }
+                };
+
+                const startGeneration = async () => {
+                    if (!form.value.jobId) {
+                        alert('Please upload a file first');
+                        return;
+                    }
+                    if (!hasApiKey.value) {
+                        alert('Please set Global API Key in settings');
+                        showSettings.value = true;
+                        return;
+                    }
+                    
+                    loading.value = true;
+                    status.value = 'pending';
+                    errorMsg.value = '';
+                    result.value = null;
+
+                    try {
+                        const res = await fetch('/api/generate', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                job_id: form.value.jobId,
+                                combo: form.value.combo,
+                                lang: lang.value,
+                                api_key: null, // Use global
+                                repo_link: form.value.repoLink,
+                                app_intro: form.value.appIntro,
+                                app_name: form.value.appName
+                            })
+                        });
+                        
+                        if (res.ok) {
+                            // Async UX Improvement
+                            loading.value = false;
+                            alert(`${t('taskSubmitted')}\n${t('checkHistory')}`);
+                            currentTab.value = 'history';
+                            fetchHistory(); // This triggers the auto-refresh loop
+                        } else {
+                            throw new Error('Start failed');
+                        }
+                    } catch (e) {
+                        status.value = 'failed';
+                        errorMsg.value = e.message;
+                        loading.value = false;
+                    }
+                };
+
+                // Removed single task poller
+                const pollStatus = async () => {};
+
+                let historyPollTimer = null;
+
+                const fetchHistory = async () => {
+                    try {
+                        const res = await fetch('/api/history');
+                        const data = await res.json();
+                        historyList.value = data.history;
+
+                        // Check if any job is running
+                        const hasRunning = historyList.value.some(j => j.status === 'running' || j.status === 'pending');
+                        
+                        if (hasRunning) {
+                            if (historyPollTimer) clearTimeout(historyPollTimer);
+                            historyPollTimer = setTimeout(fetchHistory, 3000);
+                        } else {
+                            if (historyPollTimer) clearTimeout(historyPollTimer);
+                            historyPollTimer = null;
+                        }
+
+                    } catch (e) {
+                        console.error('Failed to fetch history', e);
+                    }
+                };
+                
+                // Cleanup on unmount not strictly needed for page but good practice
+                // onUnmounted(() => { if (historyPollTimer) clearTimeout(historyPollTimer); });
+
+                const resetForm = () => {
+                    form.value = {
+                        apiKey: '',
+                        combo: combos.value[0] || '',
+                        repoLink: '',
+                        appIntro: '',
+                        jobId: '',
+                        filename: '',
+                        appName: ''
+                    };
+                    status.value = 'idle';
+                    result.value = null;
+                };
+
+                const getDownloadLink = (jobId, type) => {
+                    return `/api/download/${jobId}/${type}`;
+                };
+
+                const formatTime = (ts) => {
+                    if (!ts) return '-';
+                    return new Date(parseFloat(ts) * 1000).toLocaleString();
+                };
+
+                return {
+                    lang,
+                    combos,
+                    form,
+                    loading,
+                    status,
+                    result,
+                    errorMsg,
+                    currentTab,
+                    showSettings,
+                    globalApiKey,
+                    hasApiKey,
+                    historyList,
+                    t,
+                    handleFileUpload,
+                    startGeneration,
+                    resetForm,
+                    getDownloadLink,
+                    saveGlobalApiKey,
+                    fetchHistory,
+                    formatTime
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

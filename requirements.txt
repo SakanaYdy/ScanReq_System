@@ -1,0 +1,12 @@
+androguard==3.4.0a1
+dashscope==1.22.2
+fastapi==0.115.6
+langchain-community==0.4.1
+langchain-core==1.2.7
+pydantic==2.12.5
+python-docx==1.2.0
+python-dotenv==1.2.1
+python-multipart==0.0.20
+streamlit==1.50.0
+tqdm==4.66.4
+uvicorn==0.34.0

@@ -1,0 +1,11 @@
+# 需求生成系统启动命令说明
+
+# 该系统采用 FastAPI 后端直接托管静态 HTML 前端的方式。
+# 因此，只需要运行后端服务即可同时启动前后端。
+
+# 启动命令 (在项目根目录下执行):
+python Req/server/main.py
+
+# 启动成功后:
+# 后端 API 地址: http://localhost:8001/api/
+# 前端页面 地址: http://localhost:8001/

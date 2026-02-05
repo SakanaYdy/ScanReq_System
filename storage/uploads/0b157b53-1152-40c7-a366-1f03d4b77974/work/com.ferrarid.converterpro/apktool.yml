@@ -1,0 +1,20 @@
+version: 2.12.1
+apkFileName: app.apk
+usesFramework:
+  ids:
+  - 1
+sdkInfo:
+  minSdkVersion: 24
+  targetSdkVersion: 36
+packageInfo:
+  forcedPackageId: 127
+versionInfo:
+  versionCode: 50
+  versionName: 4.4.0
+doNotCompress:
+- arsc
+- png
+- so
+- webp
+- assets/dexopt/baseline.prof
+- assets/dexopt/baseline.profm
