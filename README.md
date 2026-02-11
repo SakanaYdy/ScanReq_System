@@ -23,7 +23,7 @@
 - **数据与存储**：使用文件系统持久化存储任务状态（`jobs.json`）与生成产物（SRS、测试脚本、报告），确保演示环境的轻量化与易部署性。
 
 核心代码参考：
-- 后端入口: [main.py](file:///d:/nju/需求生成系统/github/backend/server/main.py)
+- 后端入口: [main.py](file:///d:/nju/需求生成系统/github/Req/server/main.py)
 - 前端演示: [index.html](file:///d:/nju/需求生成系统/github/Req/server/static/index.html)
 - 生成流程: [run_multi_model_unified6_demo.py](file:///d:/nju/需求生成系统/github/Req/demo/run_multi_model_unified6_demo.py)
 

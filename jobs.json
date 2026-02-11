@@ -1,57 +1,24 @@
 {
-  "30342128-c6f3-4b9f-be41-261ae3c0fa09": {
-    "job_id": "30342128-c6f3-4b9f-be41-261ae3c0fa09",
+  "6e17e530-54cb-410e-b16a-de7c693c9660": {
+    "job_id": "6e17e530-54cb-410e-b16a-de7c693c9660",
     "status": "completed",
-    "created_at": "1770031270.458667",
-    "app_name": "上线测试2",
-    "combo": "应用介绍+Activity分析+代码解析文档",
-    "lang": "zh",
-    "file_path": "D:\\nju\\需求生成系统\\github\\storage\\uploads\\30342128-c6f3-4b9f-be41-261ae3c0fa09\\app.apk",
-    "original_filename": "ConverterNOW.apk",
-    "source_zip_path": "D:\\nju\\需求生成系统\\github\\storage\\uploads\\30342128-c6f3-4b9f-be41-261ae3c0fa09\\source.zip",
-    "error": "generate_tests_for_requirements() got an unexpected keyword argument 'activity_analysis'",
-    "result": {
-      "app_dir": "D:/nju/需求生成系统/github/storage/uploads/30342128-c6f3-4b9f-be41-261ae3c0fa09/work/com.ferrarid.converterpro",
-      "ok": true,
-      "message": "",
-      "combo": "应用介绍+Activity分析+代码解析文档",
-      "app": "com.ferrarid.converterpro",
-      "srs": "D:/nju/需求生成系统/github/Req/demo/output/应用介绍+Activity分析+代码解析文档/com.ferrarid.converterpro/com.ferrarid.converterpro_SRS.json",
-      "tests": "D:/nju/需求生成系统/github/Req/demo/output/应用介绍+Activity分析+代码解析文档/com.ferrarid.converterpro/com.ferrarid.converterpro_TestRequirements.json",
-      "test_json": "D:/nju/需求生成系统/github/Req/demo/output/应用介绍+Activity分析+代码解析文档/com.ferrarid.converterpro/com.ferrarid.converterpro.json",
-      "report": "D:\\nju\\需求生成系统\\github\\Req\\demo\\output\\应用介绍+Activity分析+代码解析文档\\com.ferrarid.converterpro\\com.ferrarid.converterpro_功能测试报告.docx",
-      "zip": "D:\\nju\\需求生成系统\\github\\Req\\demo\\output\\应用介绍+Activity分析+代码解析文档\\com.ferrarid.converterpro\\com.ferrarid.converterpro_data.zip"
-    }
-  },
-  "21bbf665-d1e9-4860-b6a2-b702051a93b7": {
-    "job_id": "21bbf665-d1e9-4860-b6a2-b702051a93b7",
-    "status": "pending",
-    "created_at": "1770032686.1405084",
-    "app_name": "Unknown",
-    "combo": "",
-    "lang": "",
-    "file_path": "D:\\nju\\需求生成系统\\github\\storage\\uploads\\21bbf665-d1e9-4860-b6a2-b702051a93b7\\app.apk",
-    "original_filename": "test2.txt"
-  },
-  "5472f813-98e8-4de2-82be-c9b47c7b75b2": {
-    "job_id": "5472f813-98e8-4de2-82be-c9b47c7b75b2",
-    "status": "pending",
-    "created_at": "1770032690.2009907",
-    "app_name": "Unknown",
-    "combo": "",
-    "lang": "",
-    "file_path": "D:\\nju\\需求生成系统\\github\\storage\\uploads\\5472f813-98e8-4de2-82be-c9b47c7b75b2\\app.apk",
-    "original_filename": "test1.txt"
-  },
-  "0b157b53-1152-40c7-a366-1f03d4b77974": {
-    "job_id": "0b157b53-1152-40c7-a366-1f03d4b77974",
-    "status": "failed",
-    "created_at": "1770034754.6377802",
+    "created_at": "1770816060.6419148",
     "app_name": "test2",
     "combo": "应用介绍+Activity分析",
     "lang": "zh",
-    "file_path": "D:\\nju\\需求生成系统\\github\\storage\\uploads\\0b157b53-1152-40c7-a366-1f03d4b77974\\app.apk",
+    "file_path": "D:\\nju\\需求生成系统\\github\\storage\\uploads\\6e17e530-54cb-410e-b16a-de7c693c9660\\app.apk",
     "original_filename": "ConverterNOW.apk",
-    "error": "cannot schedule new futures after interpreter shutdown"
+    "result": {
+      "app_dir": "D:/nju/需求生成系统/github/storage/uploads/6e17e530-54cb-410e-b16a-de7c693c9660/work/com.ferrarid.converterpro",
+      "ok": true,
+      "message": "",
+      "combo": "应用介绍+Activity分析",
+      "app": "com.ferrarid.converterpro",
+      "srs": "D:/nju/需求生成系统/github/Req/demo/output/应用介绍+Activity分析/com.ferrarid.converterpro/com.ferrarid.converterpro_SRS.json",
+      "tests": "D:/nju/需求生成系统/github/Req/demo/output/应用介绍+Activity分析/com.ferrarid.converterpro/com.ferrarid.converterpro_TestRequirements.json",
+      "test_json": "D:/nju/需求生成系统/github/Req/demo/output/应用介绍+Activity分析/com.ferrarid.converterpro/com.ferrarid.converterpro.json",
+      "report": "D:\\nju\\需求生成系统\\github\\Req\\demo\\output\\应用介绍+Activity分析\\com.ferrarid.converterpro\\com.ferrarid.converterpro_功能测试报告.docx",
+      "zip": "D:\\nju\\需求生成系统\\github\\Req\\demo\\output\\应用介绍+Activity分析\\com.ferrarid.converterpro\\com.ferrarid.converterpro_data.zip"
+    }
   }
 }
