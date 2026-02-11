@@ -3,13 +3,13 @@
 本仓库为原项目的演示仓库结构，保持原有逻辑与代码不变，仅对目录进行清晰拆分：前端、后端与实现代码分离。同时提供快速运行说明，便于论文 Demo 演示。
 
 ## 仓库结构
-- frontend/
-  - index.html (Vue.js 前端)
 - backend/ 后端服务（FastAPI）
   - server/
     - main.py
 - Req/ 实现代码（保持原目录与模块命名）
   - config、llm、tools、filters、experiment、demo 等
+- Req/server/static/
+  - index.html (Vue.js 前端静态页，由后端托管)
 - storage/ 运行期存储（后端自动创建）
   - uploads/、downloads/
 - jobs.json 任务记录文件（后端使用）
@@ -24,7 +24,7 @@
 
 核心代码参考：
 - 后端入口: [main.py](file:///d:/nju/需求生成系统/github/backend/server/main.py)
-- 前端演示: [index.html](file:///d:/nju/需求生成系统/github/frontend/index.html)
+- 前端演示: [index.html](file:///d:/nju/需求生成系统/github/Req/server/static/index.html)
 - 生成流程: [run_multi_model_unified6_demo.py](file:///d:/nju/需求生成系统/github/Req/demo/run_multi_model_unified6_demo.py)
 
 ## 环境准备
@@ -51,7 +51,7 @@
 python backend/server/main.py
 ```
 
-默认监听 0.0.0.0:8001，静态页面为 frontend/index.html。
+默认监听 0.0.0.0:8001，静态页面由 `Req/server/static/index.html` 提供。
 
 接口功能：
 - /api/upload：上传 APK，返回 job_id

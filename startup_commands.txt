@@ -4,6 +4,7 @@
 # 因此，只需要运行后端服务即可同时启动前后端。
 
 # 启动命令 (在项目根目录下执行):
+source .venv/bin/activate
 python Req/server/main.py
 
 # 启动成功后:

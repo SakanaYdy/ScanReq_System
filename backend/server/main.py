@@ -291,7 +291,7 @@ async def download_result(job_id: str, file_type: str):
     return FileResponse(file_path, filename=Path(file_path).name)
 
 # Serve Static Files (Mount last to avoid blocking APIs)
-app.mount("/", StaticFiles(directory=ROOT_DIR / "frontend", html=True), name="static")
+app.mount("/", StaticFiles(directory=ROOT_DIR / "Req" / "server" / "static", html=True), name="static")
 
 if __name__ == "__main__":
     import uvicorn
