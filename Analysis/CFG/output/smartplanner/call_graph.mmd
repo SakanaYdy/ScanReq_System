@@ -1,0 +1,667 @@
+graph TD
+  N1["ExampleInstrumentedTest.java:ExampleInstrumentedTest.useAppContext"]
+  N2["ExampleInstrumentedTest.java:ExampleInstrumentedTest.assertEquals"]
+  N3["LogAdapter.java:LogAdapter.LogAdapter"]
+  N4["LogAdapter.java:LogAdapter.onCreateViewHolder"]
+  N5["LogAdapter.java:LogAdapter.LogViewHolder"]
+  N6["LogAdapter.java:LogAdapter.onBindViewHolder"]
+  N7["LogAdapter.java:LogAdapter.getItemCount"]
+  N8["LogAdapter.java:LogAdapter.LogViewHolder"]
+  N9["TaskAdapter.java:TaskAdapter.onStartTimerClick"]
+  N10["TaskAdapter.java:TaskAdapter.onEditClick"]
+  N11["TaskAdapter.java:TaskAdapter.onDeleteClick"]
+  N12["TaskAdapter.java:TaskAdapter.onTaskCheckChanged"]
+  N13["TaskAdapter.java:TaskAdapter.TaskAdapter"]
+  N14["TaskAdapter.java:TaskAdapter.setTasks"]
+  N15["TaskAdapter.java:TaskAdapter.getPosition"]
+  N16["TaskAdapter.java:TaskAdapter.setTasks"]
+  N17["TaskAdapter.java:TaskAdapter.AiTask"]
+  N18["TaskAdapter.java:TaskAdapter.notifyDataSetChanged"]
+  N19["TaskAdapter.java:TaskAdapter.getTasks"]
+  N20["TaskAdapter.java:TaskAdapter.onCreateViewHolder"]
+  N21["TaskAdapter.java:TaskAdapter.TaskViewHolder"]
+  N22["TaskAdapter.java:TaskAdapter.onBindViewHolder"]
+  N23["TaskAdapter.java:TaskAdapter.getItemCount"]
+  N24["TaskAdapter.java:TaskAdapter.TaskViewHolder"]
+  N25["TaskAdapter.java:TaskAdapter.bind"]
+  N26["TaskLogGroup.java:TaskLogGroup.getTitle"]
+  N27["TaskLogGroup.java:TaskLogGroup.setTitle"]
+  N28["TaskLogGroup.java:TaskLogGroup.getTimestamp"]
+  N29["TaskLogGroup.java:TaskLogGroup.setTimestamp"]
+  N30["TaskLogGroup.java:TaskLogGroup.getSubTasks"]
+  N31["TaskLogGroup.java:TaskLogGroup.setSubTasks"]
+  N32["TaskLogGroupAdapter.java:TaskLogGroupAdapter.onClick"]
+  N33["TaskLogGroupAdapter.java:TaskLogGroupAdapter.TaskLogGroupAdapter"]
+  N34["TaskLogGroupAdapter.java:TaskLogGroupAdapter.onCreateViewHolder"]
+  N35["TaskLogGroupAdapter.java:TaskLogGroupAdapter.GroupViewHolder"]
+  N36["TaskLogGroupAdapter.java:TaskLogGroupAdapter.onBindViewHolder"]
+  N37["TaskLogGroupAdapter.java:TaskLogGroupAdapter.getItemCount"]
+  N38["TaskLogGroupAdapter.java:TaskLogGroupAdapter.GroupViewHolder"]
+  N39["TimerActivity.java:TimerActivity.onCreate"]
+  N40["TimerActivity.java:TimerActivity.setContentView"]
+  N41["TimerActivity.java:TimerActivity.findViewById"]
+  N42["TimerActivity.java:TimerActivity.findViewById"]
+  N43["TimerActivity.java:TimerActivity.findViewById"]
+  N44["TimerActivity.java:TimerActivity.findViewById"]
+  N45["TimerActivity.java:TimerActivity.findViewById"]
+  N46["TimerActivity.java:TimerActivity.findViewById"]
+  N47["TimerActivity.java:TimerActivity.updateDisplay"]
+  N48["TimerActivity.java:TimerActivity.getIntent"]
+  N49["TimerActivity.java:TimerActivity.getIntent"]
+  N50["TimerActivity.java:TimerActivity.updateDisplay"]
+  N51["TimerActivity.java:TimerActivity.startTimer"]
+  N52["TimerActivity.java:TimerActivity.resetTimer"]
+  N53["TimerActivity.java:TimerActivity.startTimer"]
+  N54["TimerActivity.java:TimerActivity.getPickerMillis"]
+  N55["TimerActivity.java:TimerActivity.CountDownTimer"]
+  N56["TimerActivity.java:TimerActivity.onTick"]
+  N57["TimerActivity.java:TimerActivity.updateDisplay"]
+  N58["TimerActivity.java:TimerActivity.onFinish"]
+  N59["TimerActivity.java:TimerActivity.updateDisplay"]
+  N60["TimerActivity.java:TimerActivity.DatabaseHelper"]
+  N61["TimerActivity.java:TimerActivity.TaskLog"]
+  N62["TimerActivity.java:TimerActivity.finish"]
+  N63["TimerActivity.java:TimerActivity.saveTaskLog"]
+  N64["TimerActivity.java:TimerActivity.DatabaseHelper"]
+  N65["TimerActivity.java:TimerActivity.TaskLog"]
+  N66["TimerActivity.java:TimerActivity.pauseTimer"]
+  N67["TimerActivity.java:TimerActivity.resetTimer"]
+  N68["TimerActivity.java:TimerActivity.updateDisplay"]
+  N69["TimerActivity.java:TimerActivity.getPickerMillis"]
+  N70["TimerActivity.java:TimerActivity.updateDisplay"]
+  N71["TimerActivity.java:TimerActivity.onDestroy"]
+  N72["DatabaseHelper.java:DatabaseHelper.KEY"]
+  N73["DatabaseHelper.java:DatabaseHelper.DatabaseHelper"]
+  N74["DatabaseHelper.java:DatabaseHelper.onCreate"]
+  N75["DatabaseHelper.java:DatabaseHelper.onUpgrade"]
+  N76["DatabaseHelper.java:DatabaseHelper.insertTaskLog"]
+  N77["DatabaseHelper.java:DatabaseHelper.getWritableDatabase"]
+  N78["DatabaseHelper.java:DatabaseHelper.ContentValues"]
+  N79["DatabaseHelper.java:DatabaseHelper.insertLastTaskSnapshot"]
+  N80["DatabaseHelper.java:DatabaseHelper.getWritableDatabase"]
+  N81["DatabaseHelper.java:DatabaseHelper.ContentValues"]
+  N82["DatabaseHelper.java:DatabaseHelper.getTasksBetween"]
+  N83["DatabaseHelper.java:DatabaseHelper.getReadableDatabase"]
+  N84["DatabaseHelper.java:DatabaseHelper.getLogsBetween"]
+  N85["DatabaseHelper.java:DatabaseHelper.getReadableDatabase"]
+  N86["AiTask.java:AiTask.AiTask"]
+  N87["AiTask.java:AiTask.AiTask"]
+  N88["AiTask.java:AiTask.getId"]
+  N89["AiTask.java:AiTask.getDescription"]
+  N90["AiTask.java:AiTask.setDescription"]
+  N91["AiTask.java:AiTask.AiTask"]
+  N92["AiTask.java:AiTask.getDurationMinutes"]
+  N93["AiTask.java:AiTask.setDurationMinutes"]
+  N94["AiTask.java:AiTask.isCompleted"]
+  N95["AiTask.java:AiTask.setCompleted"]
+  N96["AiTask.java:AiTask.toString"]
+  N97["AiTaskRequest.java:AiTaskRequest.AiTaskRequest"]
+  N98["AiTaskRequest.java:AiTaskRequest.getPrompt"]
+  N99["AiTaskRequest.java:AiTaskRequest.setPrompt"]
+  N100["AiTaskResponse.java:AiTaskResponse.getTasks"]
+  N101["AiTaskResponse.java:AiTaskResponse.setTasks"]
+  N102["CozeChatRequest.java:CozeChatRequest.CozeChatRequest"]
+  N103["CozeChatRequest.java:CozeChatRequest.getBot_id"]
+  N104["CozeChatRequest.java:CozeChatRequest.setBot_id"]
+  N105["CozeChatRequest.java:CozeChatRequest.getUser"]
+  N106["CozeChatRequest.java:CozeChatRequest.setUser"]
+  N107["CozeChatRequest.java:CozeChatRequest.getQuery"]
+  N108["CozeChatRequest.java:CozeChatRequest.setQuery"]
+  N109["CozeChatRequest.java:CozeChatRequest.isStream"]
+  N110["CozeChatRequest.java:CozeChatRequest.setStream"]
+  N111["CozeChatResponse.java:CozeChatResponse.getMessages"]
+  N112["CozeChatResponse.java:CozeChatResponse.setMessages"]
+  N113["CozeChatResponse.java:CozeChatResponse.getConversation_id"]
+  N114["CozeChatResponse.java:CozeChatResponse.setConversation_id"]
+  N115["CozeChatResponse.java:CozeChatResponse.getCode"]
+  N116["CozeChatResponse.java:CozeChatResponse.setCode"]
+  N117["CozeChatResponse.java:CozeChatResponse.getMsg"]
+  N118["CozeChatResponse.java:CozeChatResponse.setMsg"]
+  N119["CozeChatResponse.java:CozeChatResponse.getRole"]
+  N120["CozeChatResponse.java:CozeChatResponse.setRole"]
+  N121["CozeChatResponse.java:CozeChatResponse.getType"]
+  N122["CozeChatResponse.java:CozeChatResponse.setType"]
+  N123["CozeChatResponse.java:CozeChatResponse.getContent"]
+  N124["CozeChatResponse.java:CozeChatResponse.setContent"]
+  N125["CozeChatResponse.java:CozeChatResponse.getContent_type"]
+  N126["CozeChatResponse.java:CozeChatResponse.setContent_type"]
+  N127["Statistics.java:Statistics.getStartDate"]
+  N128["Statistics.java:Statistics.setStartDate"]
+  N129["Statistics.java:Statistics.getEndDate"]
+  N130["Statistics.java:Statistics.setEndDate"]
+  N131["Statistics.java:Statistics.getTotalTasks"]
+  N132["Statistics.java:Statistics.setTotalTasks"]
+  N133["Statistics.java:Statistics.getCompletedTasks"]
+  N134["Statistics.java:Statistics.setCompletedTasks"]
+  N135["Statistics.java:Statistics.getOverdueTasks"]
+  N136["Statistics.java:Statistics.setOverdueTasks"]
+  N137["Statistics.java:Statistics.getCompletionRate"]
+  N138["Statistics.java:Statistics.setCompletionRate"]
+  N139["Statistics.java:Statistics.getTotalFocusTime"]
+  N140["Statistics.java:Statistics.setTotalFocusTime"]
+  N141["Statistics.java:Statistics.getCategoryDistribution"]
+  N142["Statistics.java:Statistics.setCategoryDistribution"]
+  N143["Statistics.java:Statistics.getDailyCompletionRate"]
+  N144["Statistics.java:Statistics.setDailyCompletionRate"]
+  N145["Statistics.java:Statistics.getSummary"]
+  N146["Statistics.java:Statistics.setSummary"]
+  N147["Task.java:Task.Task"]
+  N148["Task.java:Task.Task"]
+  N149["Task.java:Task.Task"]
+  N150["Task.java:Task.getId"]
+  N151["Task.java:Task.setId"]
+  N152["Task.java:Task.getUserId"]
+  N153["Task.java:Task.setUserId"]
+  N154["Task.java:Task.getTitle"]
+  N155["Task.java:Task.setTitle"]
+  N156["Task.java:Task.getDescription"]
+  N157["Task.java:Task.setDescription"]
+  N158["Task.java:Task.getDeadline"]
+  N159["Task.java:Task.setDeadline"]
+  N160["Task.java:Task.setDeadline"]
+  N161["Task.java:Task.getCreateTime"]
+  N162["Task.java:Task.setCreateTime"]
+  N163["Task.java:Task.getCompleteTime"]
+  N164["Task.java:Task.setCompleteTime"]
+  N165["Task.java:Task.getParentTaskId"]
+  N166["Task.java:Task.setParentTaskId"]
+  N167["Task.java:Task.getStatus"]
+  N168["Task.java:Task.setStatus"]
+  N169["Task.java:Task.getPriority"]
+  N170["Task.java:Task.setPriority"]
+  N171["Task.java:Task.getCategory"]
+  N172["Task.java:Task.setCategory"]
+  N173["Task.java:Task.getEstimatedMinutes"]
+  N174["Task.java:Task.setEstimatedMinutes"]
+  N175["Task.java:Task.getTags"]
+  N176["Task.java:Task.setTags"]
+  N177["Task.java:Task.isAiGenerated"]
+  N178["Task.java:Task.setAiGenerated"]
+  N179["Task.java:Task.getOriginalGoal"]
+  N180["Task.java:Task.setOriginalGoal"]
+  N181["TaskDao.java:TaskDao.insertTask"]
+  N182["TaskDao.java:TaskDao.updateTask"]
+  N183["TaskDao.java:TaskDao.getTasksByUserId"]
+  N184["TaskLog.java:TaskLog.TaskLog"]
+  N185["TaskLog.java:TaskLog.TaskLog"]
+  N186["TaskLog.java:TaskLog.getId"]
+  N187["TaskLog.java:TaskLog.setId"]
+  N188["TaskLog.java:TaskLog.getTaskId"]
+  N189["TaskLog.java:TaskLog.setTaskId"]
+  N190["TaskLog.java:TaskLog.getActionType"]
+  N191["TaskLog.java:TaskLog.setActionType"]
+  N192["TaskLog.java:TaskLog.getActionTime"]
+  N193["TaskLog.java:TaskLog.setActionTime"]
+  N194["TaskLog.java:TaskLog.getNote"]
+  N195["TaskLog.java:TaskLog.setNote"]
+  N196["TaskLog.java:TaskLog.getDuration"]
+  N197["TaskLog.java:TaskLog.setDuration"]
+  N198["TaskLog.java:TaskLog.isChecked"]
+  N199["TaskLog.java:TaskLog.setChecked"]
+  N200["TaskLogDao.java:TaskLogDao.insert"]
+  N201["TaskLogDao.java:TaskLogDao.getLastLogs"]
+  N202["AiService.java:AiService.AiService"]
+  N203["AiService.java:AiService.getTaskBreakdown"]
+  N204["AiService.java:AiService.CozeChatRequest"]
+  N205["AiService.java:AiService.onResponse"]
+  N206["AiService.java:AiService.parseContent"]
+  N207["AiService.java:AiService.onFailure"]
+  N208["AiService.java:AiService.parseContent"]
+  N209["AiService.java:AiService.Builder"]
+  N210["AiService.java:AiService.AiTask"]
+  N211["AiTaskParserCallback.java:AiTaskParserCallback.onSuccess"]
+  N212["AiTaskParserCallback.java:AiTaskParserCallback.onError"]
+  N213["ApiClient.java:ApiClient.getClient"]
+  N214["ApiClient.java:ApiClient.HttpLoggingInterceptor"]
+  N215["ImportExportService.java:ImportExportService.ExportData"]
+  N216["ImportExportService.java:ImportExportService.Date"]
+  N217["ImportExportService.java:ImportExportService.ImportExportService"]
+  N218["ImportExportService.java:ImportExportService.GsonBuilder"]
+  N219["ImportExportService.java:ImportExportService.DatabaseHelper"]
+  N220["ImportExportService.java:ImportExportService.exportAllData"]
+  N221["ImportExportService.java:ImportExportService.SimpleDateFormat"]
+  N222["ImportExportService.java:ImportExportService.Date"]
+  N223["ImportExportService.java:ImportExportService.exportToJson"]
+  N224["ImportExportService.java:ImportExportService.exportToCsv"]
+  N225["ImportExportService.java:ImportExportService.exportAndShareAllFormats"]
+  N226["ImportExportService.java:ImportExportService.SimpleDateFormat"]
+  N227["ImportExportService.java:ImportExportService.Date"]
+  N228["ImportExportService.java:ImportExportService.exportToJson"]
+  N229["ImportExportService.java:ImportExportService.exportToCsv"]
+  N230["ImportExportService.java:ImportExportService.getExportDirectoryFile"]
+  N231["ImportExportService.java:ImportExportService.File"]
+  N232["ImportExportService.java:ImportExportService.File"]
+  N233["ImportExportService.java:ImportExportService.ExportData"]
+  N234["ImportExportService.java:ImportExportService.getExportDirectoryFile"]
+  N235["ImportExportService.java:ImportExportService.File"]
+  N236["ImportExportService.java:ImportExportService.FileWriter"]
+  N237["ImportExportService.java:ImportExportService.getExportDirectoryFile"]
+  N238["ImportExportService.java:ImportExportService.File"]
+  N239["ImportExportService.java:ImportExportService.PrintWriter"]
+  N240["ImportExportService.java:ImportExportService.SimpleDateFormat"]
+  N241["ImportExportService.java:ImportExportService.Builder"]
+  N242["ImportExportService.java:ImportExportService.Builder"]
+  N243["ImportExportService.java:ImportExportService.importFromJson"]
+  N244["ImportExportService.java:ImportExportService.String"]
+  N245["ImportExportService.java:ImportExportService.getExportDirectoryFile"]
+  N246["ImportExportService.java:ImportExportService.escapeCsv"]
+  N247["ImportExportService.java:ImportExportService.formatDate"]
+  N248["ImportExportService.java:ImportExportService.Date"]
+  N249["ImportExportService.java:ImportExportService.safeToString"]
+  N250["LogService.java:LogService.LogService"]
+  N251["LogService.java:LogService.DatabaseHelper"]
+  N252["LogService.java:LogService.getInstance"]
+  N253["LogService.java:LogService.LogService"]
+  N254["LogService.java:LogService.saveTasksSnapshot"]
+  N255["LogService.java:LogService.ContentValues"]
+  N256["LogService.java:LogService.getTaskLogGroups"]
+  N257["LogService.java:LogService.AiTask"]
+  N258["LogService.java:LogService.TaskLogGroup"]
+  N259["LogService.java:LogService.SimpleDateFormat"]
+  N260["ShareService.java:ShareService.ShareService"]
+  N261["ShareService.java:ShareService.shareFile"]
+  N262["ShareService.java:ShareService.getFileUri"]
+  N263["ShareService.java:ShareService.Intent"]
+  N264["ShareService.java:ShareService.shareMultipleFiles"]
+  N265["ShareService.java:ShareService.Intent"]
+  N266["ShareService.java:ShareService.shareJsonData"]
+  N267["ShareService.java:ShareService.getExportDirectory"]
+  N268["ShareService.java:ShareService.SimpleDateFormat"]
+  N269["ShareService.java:ShareService.File"]
+  N270["ShareService.java:ShareService.FileWriter"]
+  N271["ShareService.java:ShareService.shareCsvData"]
+  N272["ShareService.java:ShareService.getExportDirectory"]
+  N273["ShareService.java:ShareService.SimpleDateFormat"]
+  N274["ShareService.java:ShareService.File"]
+  N275["ShareService.java:ShareService.FileWriter"]
+  N276["ShareService.java:ShareService.shareTextReport"]
+  N277["ShareService.java:ShareService.getExportDirectory"]
+  N278["ShareService.java:ShareService.SimpleDateFormat"]
+  N279["ShareService.java:ShareService.File"]
+  N280["ShareService.java:ShareService.FileWriter"]
+  N281["ShareService.java:ShareService.getMimeType"]
+  N282["ShareService.java:ShareService.getFileUri"]
+  N283["ShareService.java:ShareService.getExportDirectory"]
+  N284["ShareService.java:ShareService.File"]
+  N285["ShareService.java:ShareService.getRecentExportFiles"]
+  N286["ShareService.java:ShareService.getExportDirectory"]
+  N287["ShareService.java:ShareService.compare"]
+  N288["StatisticsService.java:StatisticsService.StatisticsService"]
+  N289["StatisticsService.java:StatisticsService.DatabaseHelper"]
+  N290["StatisticsService.java:StatisticsService.generateStatistics"]
+  N291["StatisticsService.java:StatisticsService.Statistics"]
+  N292["StatisticsService.java:StatisticsService.COUNT"]
+  N293["StatisticsService.java:StatisticsService.SUM"]
+  N294["StatisticsService.java:StatisticsService.COUNT"]
+  N295["StatisticsService.java:StatisticsService.SimpleDateFormat"]
+  N296["StatisticsService.java:StatisticsService.date"]
+  N297["StatisticsService.java:StatisticsService.generateSummaryText"]
+  N298["StatisticsService.java:StatisticsService.Builder"]
+  N299["StatisticsService.java:StatisticsService.SimpleDateFormat"]
+  N300["StatisticsService.java:StatisticsService.SimpleDateFormat"]
+  N301["TaskBreakdownCallback.java:TaskBreakdownCallback.onSuccess"]
+  N302["TaskBreakdownCallback.java:TaskBreakdownCallback.onError"]
+  N303["TaskService.java:TaskService.TaskAssistantService"]
+  N304["TaskService.java:TaskService.DatabaseHelper"]
+  N305["TaskService.java:TaskService.addTask"]
+  N306["TaskService.java:TaskService.ContentValues"]
+  N307["TaskService.java:TaskService.getTasksByDateRange"]
+  N308["TaskService.java:TaskService.Task"]
+  N309["TaskService.java:TaskService.updateTaskStatus"]
+  N310["TaskService.java:TaskService.ContentValues"]
+  N311["TaskService.java:TaskService.getTasksByUserId"]
+  N312["TaskService.java:TaskService.Task"]
+  N313["TaskService.java:TaskService.deleteTask"]
+  N314["TaskService.java:TaskService.updateTask"]
+  N315["TaskService.java:TaskService.ContentValues"]
+  N316["AiFragment.java:AiFragment.LinearLayoutManager"]
+  N317["AiFragment.java:AiFragment.TaskAdapter"]
+  N318["AiFragment.java:AiFragment.AiService"]
+  N319["AiFragment.java:AiFragment.showAiTaskDialog"]
+  N320["AiFragment.java:AiFragment.showAddSubTaskDialog"]
+  N321["AiFragment.java:AiFragment.endCurrentTaskSession"]
+  N322["AiFragment.java:AiFragment.showAiTaskDialog"]
+  N323["AiFragment.java:AiFragment.AiTaskParserCallback"]
+  N324["AiFragment.java:AiFragment.onSuccess"]
+  N325["AiFragment.java:AiFragment.getActivity"]
+  N326["AiFragment.java:AiFragment.displayAiTasks"]
+  N327["AiFragment.java:AiFragment.onError"]
+  N328["AiFragment.java:AiFragment.getActivity"]
+  N329["AiFragment.java:AiFragment.displayAiTasks"]
+  N330["AiFragment.java:AiFragment.showAddSubTaskDialog"]
+  N331["AiFragment.java:AiFragment.AiTask"]
+  N332["AiFragment.java:AiFragment.confirmEndTaskSession"]
+  N333["AiFragment.java:AiFragment.endCurrentTaskSession"]
+  N334["AiFragment.java:AiFragment.endCurrentTaskSession"]
+  N335["AiFragment.java:AiFragment.onStartTimerClick"]
+  N336["AiFragment.java:AiFragment.Intent"]
+  N337["AiFragment.java:AiFragment.startActivity"]
+  N338["AiFragment.java:AiFragment.onEditClick"]
+  N339["AiFragment.java:AiFragment.onDeleteClick"]
+  N340["AiFragment.java:AiFragment.onTaskCheckChanged"]
+  N341["ExportFragment.java:ExportFragment.exportData"]
+  N342["ExportFragment.java:ExportFragment.shareData"]
+  N343["ExportFragment.java:ExportFragment.exportData"]
+  N344["ExportFragment.java:ExportFragment.ImportExportService"]
+  N345["ExportFragment.java:ExportFragment.File"]
+  N346["ExportFragment.java:ExportFragment.shareData"]
+  N347["ExportFragment.java:ExportFragment.ImportExportService"]
+  N348["ExportFragment.java:ExportFragment.getContext"]
+  N349["ExportFragment.java:ExportFragment.getContext"]
+  N350["ExportFragment.java:ExportFragment.Intent"]
+  N351["ExportFragment.java:ExportFragment.startActivity"]
+  N352["LogFragment.java:LogFragment.LinearLayoutManager"]
+  N353["LogFragment.java:LogFragment.loadLogs"]
+  N354["LogFragment.java:LogFragment.loadLogs"]
+  N355["LogFragment.java:LogFragment.RecyclerView"]
+  N356["LogFragment.java:LogFragment.LinearLayoutManager"]
+  N357["LogFragment.java:LogFragment.LogAdapter"]
+  N358["MainActivity.java:MainActivity.onCreate"]
+  N359["MainActivity.java:MainActivity.setContentView"]
+  N360["MainActivity.java:MainActivity.findViewById"]
+  N361["MainActivity.java:MainActivity.MainPagerAdapter"]
+  N362["MainActivity.java:MainActivity.MainPagerAdapter"]
+  N363["MainActivity.java:MainActivity.createFragment"]
+  N364["MainActivity.java:MainActivity.AiFragment"]
+  N365["MainActivity.java:MainActivity.LogFragment"]
+  N366["MainActivity.java:MainActivity.ExportFragment"]
+  N367["MainActivity.java:MainActivity.AiFragment"]
+  N368["MainActivity.java:MainActivity.getItemCount"]
+  N369["LoginActivity.java:LoginActivity.onCreate"]
+  N370["LoginActivity.java:LoginActivity.setContentView"]
+  N371["LoginActivity.java:LoginActivity.DatabaseHelper"]
+  N372["LoginActivity.java:LoginActivity.UserService"]
+  N373["LoginActivity.java:LoginActivity.findViewById"]
+  N374["LoginActivity.java:LoginActivity.findViewById"]
+  N375["LoginActivity.java:LoginActivity.findViewById"]
+  N376["LoginActivity.java:LoginActivity.findViewById"]
+  N377["LoginActivity.java:LoginActivity.setupEmailAutocomplete"]
+  N378["LoginActivity.java:LoginActivity.getSharedPreferences"]
+  N379["LoginActivity.java:LoginActivity.Intent"]
+  N380["LoginActivity.java:LoginActivity.startActivity"]
+  N381["LoginActivity.java:LoginActivity.finish"]
+  N382["LoginActivity.java:LoginActivity.startActivity"]
+  N383["LoginActivity.java:LoginActivity.setupEmailAutocomplete"]
+  N384["RegisterActivity.java:RegisterActivity.onCreate"]
+  N385["RegisterActivity.java:RegisterActivity.setContentView"]
+  N386["RegisterActivity.java:RegisterActivity.DatabaseHelper"]
+  N387["RegisterActivity.java:RegisterActivity.UserService"]
+  N388["RegisterActivity.java:RegisterActivity.findViewById"]
+  N389["RegisterActivity.java:RegisterActivity.findViewById"]
+  N390["RegisterActivity.java:RegisterActivity.findViewById"]
+  N391["RegisterActivity.java:RegisterActivity.findViewById"]
+  N392["RegisterActivity.java:RegisterActivity.User"]
+  N393["RegisterActivity.java:RegisterActivity.startActivity"]
+  N394["RegisterActivity.java:RegisterActivity.finish"]
+  N395["User.java:User.User"]
+  N396["User.java:User.User"]
+  N397["User.java:User.getId"]
+  N398["User.java:User.setId"]
+  N399["User.java:User.getUsername"]
+  N400["User.java:User.setUsername"]
+  N401["User.java:User.getEmail"]
+  N402["User.java:User.setEmail"]
+  N403["User.java:User.getPassword"]
+  N404["User.java:User.setPassword"]
+  N405["UserService.java:UserService.UserService"]
+  N406["UserService.java:UserService.register"]
+  N407["UserService.java:UserService.ContentValues"]
+  N408["UserService.java:UserService.login"]
+  N409["UserService.java:UserService.User"]
+  N410["UserService.java:UserService.isEmailExists"]
+  N411["UserService.java:UserService.getUserTasks"]
+  N412["UserService.java:UserService.getAllEmails"]
+  N413["ExampleUnitTest.java:ExampleUnitTest.machine"]
+  N414["ExampleUnitTest.java:ExampleUnitTest.addition_isCorrect"]
+  N415["ExampleUnitTest.java:ExampleUnitTest.assertEquals"]
+  N4 -->|call:getContext| N348
+  N4 -->|call:getContext| N349
+  N5 -->|call:LogViewHolder| N8
+  N6 -->|call:setChecked| N199
+  N6 -->|call:getDurationMinutes| N92
+  N6 -->|call:getDescription| N89
+  N6 -->|call:getDescription| N156
+  N6 -->|call:isCompleted| N94
+  N8 -->|call:findViewById| N41
+  N8 -->|call:findViewById| N42
+  N8 -->|call:findViewById| N43
+  N8 -->|call:findViewById| N44
+  N8 -->|call:findViewById| N45
+  N8 -->|call:findViewById| N46
+  N8 -->|call:findViewById| N360
+  N8 -->|call:findViewById| N373
+  N8 -->|call:findViewById| N374
+  N8 -->|call:findViewById| N375
+  N8 -->|call:findViewById| N376
+  N8 -->|call:findViewById| N388
+  N8 -->|call:findViewById| N389
+  N8 -->|call:findViewById| N390
+  N8 -->|call:findViewById| N391
+  N8 -->|call:LogViewHolder| N5
+  N14 -->|call:setTasks| N16
+  N16 -->|call:setTasks| N14
+  N19 -->|call:getDescription| N89
+  N19 -->|call:getDescription| N156
+  N20 -->|call:getContext| N348
+  N20 -->|call:getContext| N349
+  N21 -->|call:TaskViewHolder| N24
+  N22 -->|call:bind| N25
+  N24 -->|call:findViewById| N41
+  N24 -->|call:findViewById| N42
+  N24 -->|call:findViewById| N43
+  N24 -->|call:findViewById| N44
+  N24 -->|call:findViewById| N45
+  N24 -->|call:findViewById| N46
+  N24 -->|call:findViewById| N360
+  N24 -->|call:findViewById| N373
+  N24 -->|call:findViewById| N374
+  N24 -->|call:findViewById| N375
+  N24 -->|call:findViewById| N376
+  N24 -->|call:findViewById| N388
+  N24 -->|call:findViewById| N389
+  N24 -->|call:findViewById| N390
+  N24 -->|call:findViewById| N391
+  N24 -->|call:TaskViewHolder| N21
+  N25 -->|call:onStartTimerClick| N9
+  N25 -->|call:setChecked| N199
+  N25 -->|call:getDurationMinutes| N92
+  N25 -->|call:getDescription| N89
+  N25 -->|call:getDescription| N156
+  N25 -->|call:onEditClick| N10
+  N25 -->|call:onDeleteClick| N11
+  N25 -->|call:onTaskCheckChanged| N12
+  N25 -->|call:setCompleted| N95
+  N25 -->|call:isCompleted| N94
+  N34 -->|call:getContext| N348
+  N34 -->|call:getContext| N349
+  N35 -->|call:GroupViewHolder| N38
+  N36 -->|call:getTitle| N26
+  N36 -->|call:getTitle| N154
+  N36 -->|call:onClick| N32
+  N38 -->|call:GroupViewHolder| N35
+  N38 -->|call:findViewById| N41
+  N38 -->|call:findViewById| N42
+  N38 -->|call:findViewById| N43
+  N38 -->|call:findViewById| N44
+  N38 -->|call:findViewById| N45
+  N38 -->|call:findViewById| N46
+  N38 -->|call:findViewById| N360
+  N38 -->|call:findViewById| N373
+  N38 -->|call:findViewById| N374
+  N38 -->|call:findViewById| N375
+  N38 -->|call:findViewById| N376
+  N38 -->|call:findViewById| N388
+  N38 -->|call:findViewById| N389
+  N38 -->|call:findViewById| N390
+  N38 -->|call:findViewById| N391
+  N41 -->|call:findViewById| N42
+  N41 -->|call:findViewById| N43
+  N41 -->|call:findViewById| N44
+  N41 -->|call:findViewById| N45
+  N41 -->|call:findViewById| N46
+  N42 -->|call:findViewById| N41
+  N42 -->|call:findViewById| N43
+  N42 -->|call:findViewById| N44
+  N42 -->|call:findViewById| N45
+  N42 -->|call:findViewById| N46
+  N43 -->|call:findViewById| N41
+  N43 -->|call:findViewById| N42
+  N43 -->|call:findViewById| N44
+  N43 -->|call:findViewById| N45
+  N43 -->|call:findViewById| N46
+  N44 -->|call:findViewById| N41
+  N44 -->|call:findViewById| N42
+  N44 -->|call:findViewById| N43
+  N44 -->|call:findViewById| N45
+  N44 -->|call:findViewById| N46
+  N45 -->|call:findViewById| N41
+  N45 -->|call:findViewById| N42
+  N45 -->|call:findViewById| N43
+  N45 -->|call:findViewById| N44
+  N45 -->|call:findViewById| N46
+  N46 -->|call:findViewById| N41
+  N46 -->|call:findViewById| N42
+  N46 -->|call:findViewById| N43
+  N46 -->|call:findViewById| N44
+  N46 -->|call:findViewById| N45
+  N47 -->|call:updateDisplay| N50
+  N47 -->|call:updateDisplay| N57
+  N47 -->|call:updateDisplay| N59
+  N47 -->|call:updateDisplay| N68
+  N47 -->|call:updateDisplay| N70
+  N48 -->|call:getIntent| N49
+  N49 -->|call:getIntent| N48
+  N50 -->|call:updateDisplay| N47
+  N50 -->|call:updateDisplay| N57
+  N50 -->|call:updateDisplay| N59
+  N50 -->|call:updateDisplay| N68
+  N50 -->|call:updateDisplay| N70
+  N50 -->|call:pauseTimer| N66
+  N51 -->|call:startTimer| N53
+  N52 -->|call:resetTimer| N67
+  N53 -->|call:startTimer| N51
+  N54 -->|call:getPickerMillis| N69
+  N57 -->|call:updateDisplay| N47
+  N57 -->|call:updateDisplay| N50
+  N57 -->|call:updateDisplay| N59
+  N57 -->|call:updateDisplay| N68
+  N57 -->|call:updateDisplay| N70
+  N59 -->|call:updateDisplay| N47
+  N59 -->|call:updateDisplay| N50
+  N59 -->|call:updateDisplay| N57
+  N59 -->|call:updateDisplay| N68
+  N59 -->|call:updateDisplay| N70
+  N60 -->|call:DatabaseHelper| N64
+  N61 -->|call:setActionType| N191
+  N61 -->|call:setDuration| N197
+  N61 -->|call:TaskLog| N65
+  N61 -->|call:insertTaskLog| N76
+  N61 -->|call:setChecked| N199
+  N61 -->|call:getIntent| N48
+  N61 -->|call:getIntent| N49
+  N61 -->|call:setTaskId| N189
+  N61 -->|call:setActionTime| N193
+  N64 -->|call:DatabaseHelper| N60
+  N65 -->|call:setActionType| N191
+  N65 -->|call:setDuration| N197
+  N65 -->|call:TaskLog| N61
+  N65 -->|call:insertTaskLog| N76
+  N65 -->|call:setChecked| N199
+  N65 -->|call:setTaskId| N189
+  N65 -->|call:setNote| N195
+  N65 -->|call:setActionTime| N193
+  N67 -->|call:resetTimer| N52
+  N68 -->|call:updateDisplay| N47
+  N68 -->|call:updateDisplay| N50
+  N68 -->|call:updateDisplay| N57
+  N68 -->|call:updateDisplay| N59
+  N68 -->|call:updateDisplay| N70
+  N69 -->|call:getPickerMillis| N54
+  N70 -->|call:updateDisplay| N47
+  N70 -->|call:updateDisplay| N50
+  N70 -->|call:updateDisplay| N57
+  N70 -->|call:updateDisplay| N59
+  N70 -->|call:updateDisplay| N68
+  N77 -->|call:getWritableDatabase| N80
+  N78 -->|call:getTaskId| N188
+  N78 -->|call:ContentValues| N81
+  N78 -->|call:getDuration| N196
+  N78 -->|call:insert| N200
+  N78 -->|call:isChecked| N198
+  N78 -->|call:getActionTime| N192
+  N78 -->|call:getNote| N194
+  N78 -->|call:getActionType| N190
+  N80 -->|call:getWritableDatabase| N77
+  N81 -->|call:insert| N200
+  N81 -->|call:ContentValues| N78
+  N83 -->|call:getReadableDatabase| N85
+  N85 -->|call:getReadableDatabase| N83
+  N86 -->|call:AiTask| N87
+  N86 -->|call:AiTask| N91
+  N86 -->|call:toString| N96
+  N87 -->|call:AiTask| N86
+  N87 -->|call:AiTask| N91
+  N91 -->|call:AiTask| N86
+  N91 -->|call:AiTask| N87
+  N91 -->|call:toString| N96
+  N147 -->|call:Task| N148
+  N147 -->|call:Task| N149
+  N148 -->|call:Task| N147
+  N148 -->|call:Task| N149
+  N149 -->|call:Task| N147
+  N149 -->|call:Task| N148
+  N159 -->|call:setDeadline| N160
+  N160 -->|call:setDeadline| N159
+  N184 -->|call:TaskLog| N185
+  N185 -->|call:TaskLog| N184
+  N202 -->|call:getClient| N213
+  N204 -->|call:getTaskBreakdown| N203
+  N205 -->|call:getContent| N123
+  N205 -->|call:getRole| N119
+  N205 -->|call:getMessages| N111
+  N205 -->|call:getType| N121
+  N206 -->|call:onError| N212
+  N206 -->|call:onError| N302
+  N206 -->|call:onError| N327
+  N206 -->|call:parseContent| N208
+  N207 -->|call:onError| N212
+  N207 -->|call:onError| N302
+  N207 -->|call:onError| N327
+  N208 -->|call:parseContent| N206
+  N210 -->|call:onSuccess| N211
+  N210 -->|call:onSuccess| N301
+  N210 -->|call:onSuccess| N324
+  N210 -->|call:toString| N96
+  N214 -->|call:Builder| N209
+  N214 -->|call:Builder| N241
+  N214 -->|call:Builder| N242
+  N214 -->|call:Builder| N298
+  N215 -->|call:ExportData| N233
+  N216 -->|call:Date| N222
+  N216 -->|call:Date| N227
+  N216 -->|call:Date| N248
+  N220 -->|call:getLogsBetween| N84
+  N220 -->|call:getTasksBetween| N82
+  N221 -->|call:SimpleDateFormat| N226
+  N221 -->|call:SimpleDateFormat| N240
+  N222 -->|call:Date| N216
+  N222 -->|call:Date| N227
+  N222 -->|call:Date| N248
+  N223 -->|call:exportToJson| N228
+  N224 -->|call:exportToCsv| N229
+  N225 -->|call:getLogsBetween| N84
+  N225 -->|call:getTasksBetween| N82
+  N226 -->|call:SimpleDateFormat| N221
+  N226 -->|call:SimpleDateFormat| N240
+  N227 -->|call:Date| N216
+  N227 -->|call:Date| N222
+  N227 -->|call:Date| N248
+  N228 -->|call:exportToJson| N223
+  N229 -->|call:exportToCsv| N224
+  N230 -->|call:getExportDirectoryFile| N234
+  N230 -->|call:getExportDirectoryFile| N237
+  N230 -->|call:getExportDirectoryFile| N245
+  N231 -->|call:File| N232
+  N231 -->|call:File| N235
+  N231 -->|call:File| N238
+  note["truncated edges: 553"]

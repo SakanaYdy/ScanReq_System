@@ -1,0 +1,34 @@
+{
+  "feature": "登录",
+  "steps": [
+    "1. 进入登录页面"
+  ],
+  "evidence_nodes": [
+    "D:/nju/需求生成系统/ScenReq/Analysis/CFG/run_cfg_pipeline.py::Global.main@10",
+    "D:/nju/需求生成系统/ScenReq/Analysis/CFG/step_extractor.py::FeatureStepResult.any@120",
+    "D:/nju/需求生成系统/ScenReq/Analysis/CFG/step_extractor.py::FeatureStepResult.any@75",
+    "D:/nju/需求生成系统/ScenReq/Analysis/CFG/step_extractor.py::FeatureStepResult.any@73",
+    "D:/nju/需求生成系统/ScenReq/Req/filters/llm_requirement_filter.py::Global.len@138",
+    "D:/nju/需求生成系统/ScenReq/Analysis/CFG/cfg_builder.py::MethodNode.feature_seed_nodes@214"
+  ],
+  "chains": [
+    [
+      "D:/nju/需求生成系统/ScenReq/Analysis/CFG/run_cfg_pipeline.py::Global.main@10"
+    ],
+    [
+      "D:/nju/需求生成系统/ScenReq/Analysis/CFG/step_extractor.py::FeatureStepResult.any@120"
+    ],
+    [
+      "D:/nju/需求生成系统/ScenReq/Analysis/CFG/step_extractor.py::FeatureStepResult.any@75"
+    ],
+    [
+      "D:/nju/需求生成系统/ScenReq/Analysis/CFG/step_extractor.py::FeatureStepResult.any@73"
+    ],
+    [
+      "D:/nju/需求生成系统/ScenReq/Req/filters/llm_requirement_filter.py::Global.len@138"
+    ],
+    [
+      "D:/nju/需求生成系统/ScenReq/Analysis/CFG/cfg_builder.py::MethodNode.feature_seed_nodes@214"
+    ]
+  ]
+}

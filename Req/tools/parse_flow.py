@@ -118,16 +118,32 @@ def preprocess_apk(apk_path: str, out_root: str = '') -> dict:
     return preprocess_existing_dir(app_dir.as_posix())
 
 
+def run_smali_enhancement(app_path: Path, out_dir: Path) -> dict:
+    try:
+        from Req.tools.run_smali_enhancement import run_pipeline
+        enhancement_dir = out_dir / "smali_enhancement"
+        summary = run_pipeline(
+            app_dir=app_path.as_posix(),
+            output_dir=str(enhancement_dir),
+            enable_llm_assist=True,
+        )
+        return {"ok": True, "summary": summary, "dir": str(enhancement_dir)}
+    except Exception as e:
+        print(f"[Smali Enhancement] Skipped: {e}")
+        return {"ok": False, "error": str(e)}
+
+
 def analyze_existing_dir(app_dir: str) -> dict:
     base = preprocess_existing_dir(app_dir)
     if not base.get('ok'):
         return base
+    app_path = Path(app_dir).resolve()
     pkg = base.get('package') or Path(app_dir).name
     out_dir = Path(ANALYSIS_DIR) / pkg
     ensure_dir(out_dir)
     try:
         txt_path, json_path = combina_activity(base['merged_dir'], out_dir.as_posix(), base['activity_list_path'])
-        return {"ok": True, "analysis_txt_path": txt_path, "analysis_json_path": json_path, **base}
+        result = {"ok": True, "analysis_txt_path": txt_path, "analysis_json_path": json_path, **base}
     except Exception:
         acts = base.get('activities', [])
         ans = []
@@ -150,7 +166,23 @@ def analyze_existing_dir(app_dir: str) -> dict:
         with open(txt_path.as_posix(), 'w', encoding='utf-8') as f:
             for item in ans:
                 f.write(f"=== {item['activity']} ===\n{item['function']}\n\n")
-        return {"ok": True, "analysis_txt_path": txt_path.as_posix(), "analysis_json_path": json_path.as_posix(), **base}
+        result = {"ok": True, "analysis_txt_path": txt_path.as_posix(), "analysis_json_path": json_path.as_posix(), **base}
+
+    enhancement = run_smali_enhancement(app_path, out_dir)
+    if enhancement.get("ok"):
+        summary = enhancement.get("summary", {})
+        artifacts = summary.get("artifacts", {})
+        enhanced_json = artifacts.get("activity_analysis_enhanced_json", "")
+        if enhanced_json and os.path.isfile(enhanced_json):
+            result["analysis_json_path"] = enhanced_json
+            result["enhanced_analysis_json_path"] = enhanced_json
+        enhanced_prompt = artifacts.get("prompt_context_enhanced_txt", "")
+        if enhanced_prompt and os.path.isfile(enhanced_prompt):
+            result["enhanced_prompt_context_path"] = enhanced_prompt
+        result["smali_enhancement_stats"] = summary.get("stats", {})
+        print(f"[Smali Enhancement] Done: {summary.get('stats', {}).get('intent_units', 0)} intents generated")
+
+    return result
 
 
 def cleanup_intermediate_files(app_dir: str):

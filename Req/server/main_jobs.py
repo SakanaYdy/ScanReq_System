@@ -275,7 +275,7 @@ def set_config(config: ConfigRequest, _: str = Depends(require_auth)):
 
 
 @app.get("/api/combos")
-def get_combos(_: str = Depends(require_auth)):
+def get_combos():
     return {"combos": AVAILABLE_COMBOS}
 
 def notify_backend_job_status(job_id: str, status: str) -> None:
@@ -801,11 +801,10 @@ async def download_result(job_id: str, file_type: str, _: str = Depends(require_
     return FileResponse(file_path, filename=Path(file_path).name)
 
 
-#app.mount("/", StaticFiles(directory=Path(__file__).parent / "static", html=True), name="static")
+app.mount("/", StaticFiles(directory=Path(__file__).parent / "static", html=True), name="static")
 
 
 if __name__ == "__main__":
     import uvicorn
 
-    #uvicorn.run(app, host="0.0.0.0", port=8001)
-    uvicorn.run(app, host="0.0.0.0", port=8001,access_log=False)
+    uvicorn.run(app, host="0.0.0.0", port=8001, access_log=False, limit_max_request_size=100 * 1024 * 1024)

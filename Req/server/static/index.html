@@ -823,10 +823,13 @@
                     }).filter(Boolean);
                 };
 
+                // TODO: 临时禁用跳转5173登录页，其他功能调通后恢复
                 const redirectToLogin = () => {
-                    const loginPath = lang.value === 'zh' ? '/zh/login' : '/login';
-                    const returnPath = window.location.href;
-                    window.location.href = `${portalUrl(loginPath)}?return=${encodeURIComponent(returnPath)}`;
+                    console.warn('[AUTH] redirectToLogin is temporarily disabled');
+                    return;
+                    // const loginPath = lang.value === 'zh' ? '/zh/login' : '/login';
+                    // const returnPath = window.location.href;
+                    // window.location.href = `${portalUrl(loginPath)}?return=${encodeURIComponent(returnPath)}`;
                 };
 
                 const authFetch = async (url, options = {}) => {
